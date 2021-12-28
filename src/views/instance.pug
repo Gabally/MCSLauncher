@@ -1,0 +1,35 @@
+include base.pug
+doctype html
+html
+  head
+    body
+        div.centered
+            div(class="form centered v-center i-d", style="width: 70%;")
+                h2(style="margin: 20px;") #{instance.name}
+                h3="Info"
+                div.centered
+                    if instance.online
+                        b.online="Status: Online 🌎"
+                    else
+                        b.offline="Status: Offline ❌"
+                    div="Port: " + instance.port
+                    div="Version: " + instance.version
+                    
+                h3="Actions"
+                div
+                    button(class="btn", id="start-inst") Start
+                    button(class="btn warning", id="stop-inst") Stop
+                    button(class="btn cancel", id="kill-inst") Kill
+                div(class="centered v-center", style="width: 100%;")
+                    h3="Console"
+                    textarea(name="console", class="stdout", id="console", cols="30", rows="10", readonly, onclick="document.getElementById('prompt').focus();")
+                    input(type="text", id="prompt", class="prompt", spellcheck="false")
+                div
+                    button(class="btn cancel", onclick="window.location.href='/'") Back
+                    button(class="btn action" onclick="window.location.href='/editconfig/" + instance.name + "'") Edit configuration
+                    button(class="btn cancel" id="del-inst") Delete
+                    div#errors.error
+        div(class="centered v-center", style="width: 100%;margin-top: 20px;")
+        script.
+            window.instanceName="#{instance.name}";
+        script(src="/public/instance.js")

@@ -1,0 +1,28 @@
+include base.pug 
+doctype html
+html
+  head
+    body
+        div.centered
+            div.centered.form.i-list.v-center
+                h2="Instances"
+                div(style="display: flex; flex-direction: row; justify-content: space-between;width: 100%;")
+                    div
+                        a(href="/newinstance", class="btn action") ➕
+                    div
+                        a(href="/logout", class="btn action") 🔚
+                each instance in instances
+                    div(class="instance centered v-center", onclick="window.location.href='/instance/" + instance.name + "'")
+                        div.i-el=instance.name
+                        div.centered
+                            div.i-status
+                                if instance.online
+                                    b.online="Status: Online 🌎"
+                                else
+                                    b.offline="Status: Offline ❌"
+                            div
+                                span="Port: " + (instance.port ? instance.port : "N/A")
+                            div
+                                span="Version: " + instance.version
+
+            

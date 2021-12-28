@@ -1,0 +1,17 @@
+include base.pug
+doctype html
+html
+  head
+    body
+        div.centered
+            div(class="form centered v-center i-d", style="width: 70%;")
+                h2=name + " config:"
+                div(class="centered v-center", style="width: 100%;height: 70vh;")
+                    textarea(name="config", id="conf-editor", class="text-editor", spellcheck="false", cols="30", rows="10")=config
+                div
+                    div#errors.error
+                    button(class="btn cancel", onclick="window.location.href='/instance/" + name + "'") Back
+                    button(class="btn action", id="save-btn") Save
+    script.
+        window.instanceName="#{name}";
+    script(src="/public/saveconfig.js")

@@ -1,0 +1,15 @@
+include base.pug
+doctype html
+html
+  head
+    body
+        div.centered
+            form(id="login" class="a-center form centered v-center")
+                h2="MCSLauncher"
+                input(type="text", id="username", placeholder="Username", required, spellcheck="false" class="txt-input")
+                br
+                input(type="password", id="password", placeholder="Password", required, spellcheck="false" class="txt-input")
+                br
+                div#errors.error
+                button(type="submit", class="btn", id="login-btn") Login
+    script(src="public/login.js")

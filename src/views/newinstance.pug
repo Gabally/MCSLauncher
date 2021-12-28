@@ -1,0 +1,29 @@
+include base.pug
+doctype html
+html
+  head
+    body
+        div.centered
+            form(class="a-center form centered v-center", id="new-instance-f", method="post", enctype="multipart/form-data")
+                h2="Create a new server instance"
+                div="Name"
+                input(type="text", placeholder="Name",  name="name", required, spellcheck="false" class="txt-input")
+                br
+                div="Server Version"
+                select(placeholder="Version", required, name="version", class="txt-input")
+                    each v in versions
+                        option(value=v) #{v}
+                br
+                div="Maximum RAM"
+                input(type="number", class="txt-input", name="maxRam", placeholder="GB", min=minRam, max=maxRam, required)
+                br
+                div="World"
+                label(style="background: aquamarine;font-size: 35px;border-radius: 10px;cursor: pointer;", for="world_file") 🌏
+                input(type="file", name="world", id="world_file", style="display: none;", accept=".zip")
+                div#file-name
+                div
+                    button(class="btn cancel" id="cancel-btn" onclick="window.location.href='/'") Cancel
+                    button(type="submit", id="create-btn", class="btn") Create
+                div#errors.error
+                img(src="/public/block-loading.gif", id="loading-spinner", style="display: none;")
+    script(src="/public/newinstance.js")
