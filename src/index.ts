@@ -13,6 +13,8 @@ import { randomString } from "./utils";
 
 const app = express();
 
+const port =  process.env.APP_PORT || "8000";
+
 export const sessionParser = session({
     cookie: { maxAge: 86400000 },
     store: new MemoryStore({
@@ -28,8 +30,6 @@ app.use(sessionParser);
 app.use(express.json({ limit: "3mb"})); 
 
 app.use(express.urlencoded({ extended: true })); 
-
-const port = 8000;
 
 app.set("views", path.join(__dirname, "views"));
 
@@ -49,8 +49,8 @@ app.use(viewsRouter);
 
 app.use("/api", apiRouter);
 
-let server = app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`);
+let server = app.listen(parseInt(port), process.env.APP_BIND || "127.0.0.1", () => {
+    console.log(`App listening at http://${process.env.APP_BIND || "127.0.0.1"}:${port}`);
 });
 
 server.on("upgrade", (request, socket, head) => {

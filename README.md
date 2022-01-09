@@ -25,6 +25,10 @@ Enviroment variables will be set by the .env file if present
 ```APP_PASSWORD```(string): The password to access the web interface
 
 ```INSTANCES_PATH```(string, optional): The folder path were tge server instaces will be saved
+
+```APP_PORT```(number, optional): The port the app will listen on (will default to 8000)
+
+```APP_BIND```(string, optional): The address the app will listen on (will default to 127.0.0.1)
 ### install dependencies
 ```
 npm install
