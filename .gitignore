@@ -2,3 +2,4 @@
 **/instances
 **/.vscode
 **/.env
+/build
