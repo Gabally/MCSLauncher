@@ -1,6 +1,6 @@
 # MCSLauncher
 <p align="center">
-<img style="image-rendering: pixelated;" src="src/public/logo.png" width="200">
+<img src="src/public/logo-high-res.png" width="200">
 </p>
 
 ### A web interface made to manage and create minecraft servers automatically.
