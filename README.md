@@ -43,5 +43,5 @@ npm run start
 ```
 ### start (development)
 ```
-npm run start
+npm run dev
 ```
